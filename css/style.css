@@ -264,86 +264,98 @@ a:focus {
 /*end header section*/
 /* slider section */
 .slider_section {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 1;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
+  justify-content: center;
   padding: 45px 0;
+  background: linear-gradient(135deg, #5a2a8f, #2c5364); /* Gradient background for a modern look */
+  position: relative;
+  overflow: hidden;
 }
 
-.slider_section .row {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.slider_section #customCarousel1 {
+.slider_section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  position: unset;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  animation: rotateGradient 20s linear infinite;
+  z-index: 0; /* Positioned behind the content */
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .slider_section .detail-box {
   text-align: center;
   color: #ffffff;
+  position: relative;
+  z-index: 1; /* Above the background effects */
+  max-width: 800px;
+  margin: auto;
 }
 
 .slider_section .detail-box h1 {
   font-weight: bold;
   margin-bottom: 20px;
+  font-size: 3em;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5); /* Highlighting text with shadows */
+}
+
+.slider_section .detail-box p {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #f8e06d; /* A golden accent for text */
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slider_section .detail-box .btn-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 0 -5px;
+  justify-content: center;
   margin-top: 45px;
-}
-
-.slider_section .detail-box .btn-box a {
-  margin: 5px;
-  text-align: center;
-  width: 185px;
+  gap: 15px; /* Space between buttons */
 }
 
 .slider_section .detail-box .btn-box .btn1 {
   display: inline-block;
   padding: 12px 15px;
-  background-color: #5a2a8f;
+  background-color: #f8842b;
   color: #ffffff;
   border-radius: 5px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: 1px solid #5a2a8f;
+  transition: all 0.3s ease;
+  border: 1px solid #f8842b;
+  font-weight: bold;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Button shadow for depth */
 }
 
 .slider_section .detail-box .btn-box .btn1:hover {
   color: #ffffff;
-  -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
+  background-color: #d46823;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Enhanced hover effect */
 }
 
 .slider_section .img-box img {
   width: 100%;
+  border-radius: 10px; /* Adds a rounded corner to the image */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Makes the image stand out */
 }
 
 .slider_section .carousel-indicators {
   position: unset;
-  margin: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between indicators */
   margin-top: 45px;
 }
 
@@ -351,15 +363,21 @@ a:focus {
   background-color: #ffffff;
   width: 15px;
   height: 15px;
-  border-radius: 100%;
+  border-radius: 50%;
   opacity: 1;
+  transition: all 0.3s ease;
 }
 
 .slider_section .carousel-indicators li.active {
   width: 23px;
   height: 23px;
   background-color: #f8842b;
+  box-shadow: 0 0 10px #f8842b; /* Glowing effect for the active indicator */
 }
+
+
+/* end of slider section*/
+
 
 .service_section {
   text-align: center;
@@ -1090,3 +1108,5 @@ a:focus {
     width: 100%; /* Allow the image to span the full width for smaller screens */
   }
 }
+
+
